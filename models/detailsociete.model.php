@@ -5,18 +5,14 @@
   $updateDetailsSociety->bindParam(':telephonesociete', $telephonesociete);
   $updateDetailsSociety->bindParam(':tvanumber', $tvanumber);
   $updateDetailsSociety->bindParam(':id', $id);
-
   $displayDetailsSocieties = $dbh->prepare('SELECT * FROM societe WHERE societe.idsociete = :id');
   $displayDetailsSocieties2 = $dbh->prepare('SELECT * FROM personnes WHERE personnes.idsociete = :id');
   $displayDetailsSocieties3 = $dbh->prepare('SELECT * FROM factures WHERE factures.idsociete = :id');
-
   $displayDetailsSocieties->bindParam(':id', $id);
   $displayDetailsSocieties2->bindParam(':id', $id);
   $displayDetailsSocieties3->bindParam(':id', $id);
-
   $id = $_GET['societe'];
   $message = '';
-
   if(isset($_POST['update'])) {
     $socialname = filter_var($_POST['socialname'], FILTER_SANITIZE_STRING);
     $adresse = filter_var($_POST['adresse'], FILTER_SANITIZE_STRING);
@@ -25,7 +21,6 @@
     $updateDetailsSociety->execute();
     $message = 'société modifiée avec succès.';
   }
-
   $displayDetailsSocieties->execute();
   $displayDetailsSocieties2->execute();
   $displayDetailsSocieties3->execute();

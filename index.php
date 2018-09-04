@@ -1,10 +1,8 @@
 <?php
-  require "views/partials/head.view.php";
-
+  session_start();
   if (!isset($_GET['page'])) {
     $_GET['page'] = '';
   }
-
   switch ($_GET['page']) {
     case 'detailfacture':
       require "controllers/detailfacture.control.php";
@@ -54,6 +52,5 @@
       require "controllers/404.control.php";
       break;
   }
-
   require 'views/partials/footer.view.php';
  ?>

@@ -5,10 +5,7 @@ if (isset($_POST['update'])) {
   $update->bindParam(':name', $_POST['ident']);
   $update->execute();
 }
-
 $users = $dbh->query('SELECT * FROM users');
 $priv = $dbh->query('SELECT privilege FROM users GROUP BY privilege');
 $donnee2 = $priv->fetchAll();
-
-
  ?>

@@ -9,10 +9,8 @@
   $displayDetailsFactures->bindParam(':idfactures', $idfactures);
   $displayDetailsFactures2 = $dbh->query("SELECT socialname, idsociete FROM societe");
   $displayDetailsFactures3 = $dbh->query("SELECT idpersonnes, name, firstname FROM personnes");
-
   $idfactures = $_GET['factures'];
   $message = '';
-
   if (isset($_POST['update'])) {
     $datefacture = $_POST['datefacture'];
     $prestationmotif = filter_var($_POST['prestationmotif'], FILTER_SANITIZE_STRING);
@@ -22,6 +20,4 @@
     $message = 'facture modifiée avec succès';
   }
   $displayDetailsFactures->execute();
-
-
  ?>
