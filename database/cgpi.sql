@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 04, 2018 at 01:54 PM
+-- Generation Time: Sep 04, 2018 at 02:08 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `cgpi`
 --
-CREATE DATABASE IF NOT EXISTS `cgpi` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `cgpi`;
 
 -- --------------------------------------------------------
 
@@ -181,6 +179,29 @@ INSERT INTO `type` (`idtype`, `type`, `relation`, `idsociete`) VALUES
 (5, 'SPRL', 'fournisseur', 5),
 (6, 'SA', 'client', 6),
 (22, 'SPRL', 'fournisseur', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `idusers` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `privilege` set('MODO','IDDQD','GUEST') NOT NULL,
+  PRIMARY KEY (`idusers`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`idusers`, `name`, `password`, `privilege`) VALUES
+(1, 'Jean-Christian', 'f1ae4a0bb3bd77e6eeec82949f50b334c409d4f7', 'IDDQD'),
+(3, 'guest', '35675e68f4b5af7b995d9205ad0fc43842f16450', 'GUEST'),
+(4, 'Muriel', 'ce61487ebde80c774d015152f38f945e73598af9', 'MODO');
 
 --
 -- Constraints for dumped tables
