@@ -21,7 +21,7 @@
                 </div>
               </td>
               <td> <input type="hidden" name="ident" value="<?php echo $donnee['name'] ?>"> </td>
-              <td> <input type="submit" name="update" value="test" <?php sessionCheckDelUpd() ?>> </td>
+              <td> <input class="button is-link is-rounded is-pulled-right" type="submit" name="update" value="Update" <?php sessionCheckDelUpd() ?>> </td>
             </tr>
           </form>
         <?php } ?>
